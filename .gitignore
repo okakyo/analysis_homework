@@ -1,0 +1,7 @@
+/out/*.aux
+/out/*.dvi
+/out/*.fls
+/out/*.fdb_latexmk
+**.gz
+*.log
+
