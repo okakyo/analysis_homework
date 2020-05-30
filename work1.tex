@@ -1,21 +1,172 @@
-\documentclass[a4paper,11pt]{jsarticle}
-
-
-% 数式
-\usepackage{amsmath,amsfonts}
+\synctex=1
+\documentclass[dvipdfmx,10pt, a4j]{jarticle}
+%----------------------------------------------------------
+%パッケージ読み込み
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsthm} %定理環境の拡張
+\usepackage{ascmac}
 \usepackage{bm}
-% 画像
-\usepackage[dvipdfmx]{graphicx}
+\usepackage{cases}
+\usepackage{comment} %非表示にするためのコメント
+\usepackage{enumerate}
+\usepackage{float} %画像をその場に表示．[h]の代わりに[H]
+\usepackage{graphicx} % eps 形式の図版取り込みのため
+\usepackage{mathrsfs}
+\usepackage{url}
+\usepackage[dvipdfmx]{hyperref}
+%----------------------------------------------------------
 
+%----------------------------------------------------------
+%命題関係の定義
+\theoremstyle{definition} 
+\newtheorem{definition}{定義}[section]
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{col}[theorem]{系}
+\newtheorem{example}{例}[section]
+\newtheorem{remark}{注意}[section]
+\renewcommand*{\proofname}{証明}
+%----------------------------------------------------------
 
+%タイトル・著者===================================================
+\title{第３回　レポート課題}
+\author{岡　恭平}
+%=================================================================
+
+%本文開始=========================================================
 \begin{document}
 
-\title{課題１}
-\author{岡　恭平}
-\date{\today}
 \maketitle
 
+%カウンタ--------------------------------------------------
+\setcounter{section}{1}
+%\setcounter{subsection}{0}
+%\setcounter{subsubsection}{0}
+\setcounter{theorem}{49}
+%----------------------------------------------------------
 
+\begin{proposition}
+教科書参照
+\end{proposition}
+
+\begin{proof}
+  定義1.183 より
+\begin{align*}
+    \bar{\bm{x}} &=(\bar{\bm{x}_{1}},\bar{\bm{x}_{2}},{\cdots},\bar{\bm{x}_{n}})'
+    \\
+    &= \frac{1}{n}(\sum_{k=1}^{n}{\bm{x}_{k1}},\sum_{k=1}^{n}{\bm{x}_{k2}},{\cdots},\sum_{k=1}^{n}{\bm{x}_{kn}})'
+    \\
+    &= \frac{1}{n}(\sum_{k=1}^{n}{\bm{x}_{1}},\sum_{k=1}^{n}{\bm{x}_{2}},{\cdots},\sum_{k=1}^{n}{\bm{x}_{n }})
+    \\
+    &= \frac{1}{n}{\sum_{k=1}^{n}{\bm{x}}} = \frac{1}{n}\bm{X}'\bm{1}_{n}~~~~(\because 1.181)
+  \end{align*}
+  \begin{align*}
+    \bm{{S}_{XX}}&=({s}_{{x}_{i}{x}_{j}})~~~~({i},{j}=1,2,3\cdots,{p})
+    \\
+    &=\frac{1}{n}\sum_{k=1}^{n}(\bm{x}_{i}-{\bar{\bm{x}}})(\bm{x}_{i}-{\bar{\bm{x}}})'
+    \\
+    &=\frac{1}{n}\sum_{k=1}^{n}(
+      \bm{x}_{i}\bm{x}_{i}'
+      -\bm{x}_{i}{\bar{\bm{x}}}'
+      -{\bar{\bm{x}}}\bm{x}_{i}'
+      +{\bar{\bm{x}}}{\bar{\bm{x}}'}
+      )
+    \\
+    &=\frac{1}{n}\sum_{k=1}^{n}\bm{x}_{i}\bm{x}_{i}'-{\bar{\bm{x}}}{\bar{\bm{x}}}'~~~~(\because 1.101)
+    \\
+    &=\frac{1}{n}\bm{X}'\bm{X}-{\bar{\bm{x}}}{\bar{\bm{x}}}'~~~~(\because 行列の積)
+    \\
+    &=\frac{1}{n}\bm{X}'\bm{X}- (\frac{1}{n}\bm{X}'\bm{1}_{n})(\frac{1}{n}\bm{1}_{n}'\bm{X})
+    \\
+    &=\frac{1}{n}(\bm{X}'\bm{X}-{\frac{1}{n}\bm{X}'\bm{1}_{n}\bm{1}_{n}'\bm{X}})
+    \\
+  \end{align*}
+  以上と同様にして、$\bm{S}_{xy}、\bm{S}_{XY}$でも成立する。
+\end{proof}
+
+\begin{proposition}
+教科書参照
+\end{proposition}
+
+\begin{proof}
+
+\begin{align*}
+  \bm{R}_{XX} &= (\bm{r}_{{x}_{i}{x}_{j}})~~~({i},{j}=1,2...p)
+  \\
+  &=
+\end{align*}
+   
+\end{proof}
+
+\begin{proposition}
+  教科書参照
+\end{proposition}
+% ---
+
+\begin{proof}
+$[\bm{A},\bm{B}]$の列空間への射影行列は
+\begin{align*}
+    [\bm{A},\bm{B}]([\bm{A},\bm{B}]^{\top}[\bm{A},\bm{B}])^{-1}[\bm{A},\bm{B}]^{\top}
+    &= 
+    [\bm{A},\bm{B}]
+    \begin{bmatrix}
+        \bm{A}^{\top}\bm{A} & \bm{A}^{\top}\bm{B} \\
+        \bm{B}^{\top}\bm{A} & \bm{B}^{\top}\bm{B} \\
+    \end{bmatrix}^{-1}
+    [\bm{A},\bm{B}]^{\top}
+    \\
+    &= 
+    [\bm{A},\bm{B}]
+    \begin{bmatrix}
+        \bm{A}^{\top}\bm{A} & \bm{O} \\
+        \bm{O} & \bm{B}^{\top}\bm{B} \\
+    \end{bmatrix}^{-1}
+    [\bm{A},\bm{B}]^{\top}
+    \\
+    &= 
+    [\bm{A},\bm{B}]
+    \begin{bmatrix}
+        (\bm{A}^{\top}\bm{A})^{-1} & \bm{O} \\
+        \bm{O} & (\bm{B}^{\top}\bm{B})^{-1} \\
+    \end{bmatrix}
+    [\bm{A},\bm{B}]^{\top}
+    \\
+    &= 
+    \begin{bmatrix}
+        \bm{A}(\bm{A}^{\top}\bm{A})^{-1} ,&
+        \bm{B}(\bm{B}^{\top}\bm{B})^{-1} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \bm{A}^{\top} \\
+        \bm{B}^{\top} \\
+    \end{bmatrix}
+    \\
+    &= \bm{A}(\bm{A}^{\top}\bm{A})^{-1}\bm{A}^{\top} + \bm{B}(\bm{B}^{\top}\bm{B})^{-1}\bm{B}^{\top}
+\end{align*}
+となる．
+
+一方で，$\bm{A}$の列空間への射影$\bm{\bm{P}}_{\bm{A}}$を考えると，
+\begin{align*}
+    \bm{P}_{\bm{A}} = \bm{A}(\bm{A}^{\top}\bm{A})^{-1}\bm{A}^{\top}
+\end{align*}
+であり，$\bm{A}$の列空間と直交する空間への射影を$\bm{P}^{\bot}_{\bm{A}}$とすると
+\begin{align*}
+    \bm{P}_{\bm{A}} + \bm{P}^{\bot}_{\bm{A}} = I
+\end{align*}
+が成り立つ．
+いま$\bm{A}^{\top}\bm{B}=\bm{O}$より，$\bm{B}$の列空間と$\bm{A}$の列空間が直交することから，
+\begin{align*}
+    \bm{P}_{\bm{A}} + \bm{P}_{\bm{B}} = I
+\end{align*}
+が成り立つ．
+
+よって，
+$\bm{A}(\bm{A}^{\top}\bm{A})^{-1}\bm{A}^{\top} + \bm{B}(\bm{B}^{\top}\bm{B})^{-1}\bm{B}^{\top} = I$が成り立つ．
+
+\end{proof}
 
 \end{document}
-
+%本文ここまで=========================================================
